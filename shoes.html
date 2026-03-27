@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+<meta charset="UTF-8">
+<title>الأحذية</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<header class="top-bar"> <div class="menu">☰</div> <div class="logo"> <img src="images/logo.png.png" alt="Logo"> </div> <div class="cart">🛒</div> </header>
+<h1 style="text-align:center;color:white;">الأحذية</h1>
+
+<div class="products-grid" id="products"></div>
+
+<script>
+
+const products = [
+
+{
+name:"حذاء رياضي",
+price:50,
+image:"images/shoes.jpg",
+sizes:["40","41","42","43","44"],
+stock:7
+},
+
+{
+name:"حذاء جري",
+price:55,
+image:"images/shoes2.jpg",
+sizes:["40","41","42","43","44"],
+stock:4
+}
+
+];
+
+
+const container = document.getElementById("products");
+
+products.forEach((product,index)=>{
+
+container.innerHTML += `
+
+<div class="product">
+
+<img src="${product.image}">
+
+<h3>${product.name}</h3>
+
+<p class="price">$${product.price}</p>
+
+<p id="stock${index}">المخزون: ${product.stock}</p>
+
+<select id="size${index}">
+${product.sizes.map(size=>`<option>${size}</option>`).join("")}
+</select>
+
+<br><br>
+
+<button onclick="buy(${index})">إضافة للسلة</button>
+
+</div>
+
+`;
+
+});
+
+
+let cart = 0;
+
+function buy(i){
+
+if(products[i].stock > 0){
+
+products[i].stock--
+
+document.getElementById("stock"+i).innerText =
+"المخزون: " + products[i].stock
+
+cart++
+
+document.getElementById("cart-count").innerText = cart
+
+if(products[i].stock == 0){
+
+document.getElementById("stock"+i).innerText =
+"نفذ المخزون"
+
+}
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

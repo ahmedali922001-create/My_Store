@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<title>متجري</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top-bar">
+
+<div class="menu">☰</div>
+
+<div class="logo">
+<img src="images/logo.png.png" alt="Logo">
+</div>
+
+<div class="cart">
+
+🛒
+<span id="cart-count">0</span>
+
+</div>
+
+</header>
+
+
+<section class="slider">
+
+  <div class="slides">
+    <div class="slide active">
+      <img src="images/shoe_discount.jpg.jpg" alt="slide 1">
+    </div>
+
+    <div class="slide">
+      <img src="images/50_discount.jpg.jpg" alt="slide 2">
+    </div>
+
+    <div class="slide">
+      <img src="images/free_shipping.jpg.jpg" alt="slide 3">
+    </div>
+  </div>
+
+  <button class="slider-btn prev" onclick="changeSlide(-1)">&#10094;</button>
+  <button class="slider-btn next" onclick="changeSlide(1)">&#10095;</button>
+
+  <div class="dots">
+    <span class="dot active" onclick="goToSlide(0)"></span>
+    <span class="dot" onclick="goToSlide(1)"></span>
+    <span class="dot" onclick="goToSlide(2)"></span>
+  </div>
+
+</section>
+
+<section class="categories">
+
+<a href="hoodies.html" class="category" style="background-image: url('images/hoodie.jpg.jpg');">
+<span>الهوديات</span>
+</a>
+
+<a href="tshirts.html" class="category" style="background-image: url('images/tshirt.jpg');">
+<span>التيشيرتات</span>
+</a>
+
+<a href="pants.html" class="category" style="background-image: url('images/pants.jpg');">
+<span>البواطلين</span>
+</a>
+
+<a href="shoes.html" class="category" style="background-image: url('images/shoes.jpg');">
+<span>الأحذية</span>
+</a>
+
+</section>
+
+<script>
+  const slides = document.querySelectorAll(".slide");
+  const dots = document.querySelectorAll(".dot");
+  let currentSlide = 0;
+  let autoSlide;
+
+  function showSlide(index) {
+    slides.forEach((slide) => slide.classList.remove("active"));
+    dots.forEach((dot) => dot.classList.remove("active"));
+
+    slides[index].classList.add("active");
+    dots[index].classList.add("active");
+    currentSlide = index;
+  }
+
+  function changeSlide(direction) {
+    currentSlide += direction;
+
+    if (currentSlide < 0) {
+      currentSlide = slides.length - 1;
+    }
+
+    if (currentSlide >= slides.length) {
+      currentSlide = 0;
+    }
+
+    showSlide(currentSlide);
+    restartAutoSlide();
+  }
+
+  function goToSlide(index) {
+    showSlide(index);
+    restartAutoSlide();
+  }
+
+  function startAutoSlide() {
+    autoSlide = setInterval(() => {
+      currentSlide++;
+      if (currentSlide >= slides.length) {
+        currentSlide = 0;
+      }
+      showSlide(currentSlide);
+    }, 3000);
+  }
+
+  function restartAutoSlide() {
+    clearInterval(autoSlide);
+    startAutoSlide();
+  }
+
+  showSlide(0);
+  startAutoSlide();
+</script>
+<section class="products">
+
+<h2 id="categoryTitle"></h2>
+
+<div class="products-grid" id="productsContainer">
+
+</div>
+
+</section>
+<script>
+
+const products = {
+
+hoodies:[
+{name:"هودي أسود",price:25,image:"images/hoodie1.jpg"},
+{name:"هودي رمادي",price:28,image:"images/hoodie2.jpg"}
+],
+
+tshirts:[
+{name:"تيشيرت أبيض",price:15,image:"images/tshirt1.jpg"},
+{name:"تيشيرت أسود",price:18,image:"images/tshirt2.jpg"}
+],
+
+pants:[
+{name:"بنطال رياضي",price:30,image:"images/pants1.jpg"},
+{name:"بنطال جينز",price:35,image:"images/pants2.jpg"}
+],
+
+shoes:[
+{name:"حذاء رياضي",price:50,image:"images/shoes1.jpg"},
+{name:"حذاء جري",price:55,image:"images/shoes2.jpg"}
+]
+
+};
+
+
+function showCategory(category){
+
+const container = document.getElementById("productsContainer");
+
+const title = document.getElementById("categoryTitle");
+
+container.innerHTML = "";
+
+title.innerText = category;
+
+products[category].forEach(product =>{
+
+container.innerHTML += `
+<div class="product">
+
+<img src="${product.image}">
+
+<h3>${product.name}</h3>
+
+<p class="price">$${product.price}</p>
+
+<button>إضافة للسلة</button>
+
+</div>
+`;
+
+});
+
+}
+
+</script>
+</body>
+</html>

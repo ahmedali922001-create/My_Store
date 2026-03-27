@@ -1,0 +1,320 @@
+/* عام */
+body {
+    margin: 0;
+    font-family: 'Cairo', Arial, sans-serif;
+    
+    direction: rtl;
+    background-image: url('images/background.jpg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* شريط الأعلى */
+.top-bar {
+    background: #010027;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    font-size: 20px;
+}
+
+.logo img {
+    height: 40px;
+}
+
+/* السلايدر الأساسي */
+/* السلايدر */
+.slider {
+    width: 80%;
+    max-width: 900px;
+    height: 350px;
+    margin: 25px auto;
+    border-radius: 18px;
+    overflow: hidden;
+    position: relative;
+}
+
+.slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1s ease;
+    pointer-events: none;
+}
+
+.slide.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* الأسهم */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 55px;
+    height: 55px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.55);
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.slider-btn.prev {
+    left: 15px;
+}
+
+.slider-btn.next {
+    right: 15px;
+}
+
+/* الدوائر */
+.dots {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 5;
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dot.active {
+    background: white;
+}
+
+/* الدائرة الفعالة */
+#slide1:checked ~ .dots .dot:nth-child(1),
+#slide2:checked ~ .dots .dot:nth-child(2),
+#slide3:checked ~ .dots .dot:nth-child(3) {
+    background: white;
+}
+
+/* الحركة التلقائية */
+@keyframes sliderAuto {
+    0%, 33.33% { counter-reset: slider 1; }
+    33.34%, 66.66% { counter-reset: slider 2; }
+    66.67%, 100% { counter-reset: slider 3; }
+}
+
+/* CSS-only auto switch */
+.slider input#slide1 { animation: autoSlide 9s infinite; }
+.slider input#slide2 { animation: autoSlide 9s infinite 3s; }
+.slider input#slide3 { animation: autoSlide 9s infinite 6s; }
+
+@keyframes autoSlide {
+    0%,33.33% { checked: true; }
+    33.34%,66.66% { checked: false; }
+    66.67%,100% { checked: false; }
+}
+
+/* الأقسام */
+.categories {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    gap: 15px;
+}
+
+.category {
+    width: 20%;
+    aspect-ratio: 3 / 4;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.category span {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: rgba(1, 0, 39, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.category{
+transition: transform 0.3s;
+}
+
+.category:hover{
+transform: scale(1.05);
+}
+
+@media (max-width:768px){
+
+.categories{
+    flex-wrap: wrap;
+}
+
+.category{
+    width:45%;
+}
+
+}
+
+/* عنوان القسم */
+.section-title{
+text-align:center;
+color:white;
+margin-top:40px;
+font-size:28px;
+}
+
+/* شبكة المنتجات */
+.products-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+padding:30px;
+}
+
+/* كرت المنتج */
+.product{
+
+background:white;
+padding:15px;
+border-radius:12px;
+text-align:center;
+transition:0.3s;
+display:flex;
+flex-direction:column;
+gap:10px;
+
+}
+
+.product:hover{
+transform:translateY(-5px);
+}
+
+.product img{
+
+width:100%;
+aspect-ratio: 3 / 4;
+object-fit: cover;
+border-radius:10px;
+
+}
+
+
+
+.product button{
+background:#010027;
+color:white;
+border:none;
+padding:10px 15px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.product button:hover{
+background:#2c2a70;
+}
+
+/* موبايل */
+@media(max-width:768px){
+
+.products-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+.products{
+padding:40px;
+}
+
+#categoryTitle{
+text-align:center;
+color:white;
+margin-bottom:30px;
+font-size:28px;
+}
+
+.products-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+
+
+
+.price{
+color:#010027;
+font-weight:bold;
+margin:10px 0;
+}
+
+
+.cart span{
+
+background:red;
+color:white;
+padding:3px 8px;
+border-radius:50%;
+font-size:14px;
+margin-right:5px;
+
+}
+
+.cart{
+position:relative;
+font-size:22px;
+cursor:pointer;
+}
+
+#cart-count{
+
+position:absolute;
+top:-8px;
+right:-10px;
+
+background:red;
+color:white;
+
+width:20px;
+height:20px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+border-radius:50%;
+font-size:12px;
+font-weight:bold;
+
+}
