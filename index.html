@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#010027">
+<meta name="description" content="FETT.OM — متجر أزياء شبابية بسيطة ورياضية في سلطنة عُمان.">
+<title>FETT.OM | فت</title>
+<link rel="icon" href="assets/logo.png">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="container nav-wrap">
+    <a class="brand" href="#home" aria-label="FETT.OM"><img src="assets/logo.png" alt="FETT.OM"></a>
+    <nav class="desktop-nav" aria-label="Primary">
+      <a href="#home" data-i18n="nav.home">الرئيسية</a>
+      <a href="#products" data-i18n="nav.products">المنتجات</a>
+      <a href="#about" data-i18n="nav.about">من نحن</a>
+      <a href="#policy" data-i18n="nav.policy">سياسة الاستبدال</a>
+      <a href="#contact" data-i18n="nav.contact">تواصل معنا</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="langBtn" aria-label="Language">EN</button>
+      <button class="icon-btn cart-open" id="cartOpenBtn" type="button" aria-label="Cart">🛒<span id="cartCount">0</span></button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu">☰</button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="#home" data-i18n="nav.home">الرئيسية</a>
+    <a href="#products" data-i18n="nav.products">المنتجات</a>
+    <a href="#about" data-i18n="nav.about">من نحن</a>
+    <a href="#policy" data-i18n="nav.policy">سياسة الاستبدال</a>
+    <a href="#contact" data-i18n="nav.contact">تواصل معنا</a>
+  </nav>
+</header>
+
+<main id="home">
+<section class="hero">
+  <div class="hero-slider" id="heroSlider" aria-hidden="true"></div>
+  <div class="hero-content container">
+    <div class="hero-copy">
+      <span class="eyebrow" id="heroEyebrow">عرض FETT.OM</span>
+      <h1 id="heroTitle">توصيل مجاني عند طلب 3 منتجات أو أكثر</h1>
+      <p id="heroDesc">اطلب 3 منتجات أو أكثر واستمتع بالتوصيل المجاني إلى جميع محافظات السلطنة.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#products" id="heroShop">تسوق الآن</a>
+        <a class="btn btn-ghost" href="https://wa.me/96877185956" target="_blank" rel="noopener" id="heroWhatsapp">اطلب عبر واتساب</a>
+      </div>
+    </div>
+  </div>
+  <div class="slider-dots" id="sliderDots" aria-label="Slides"></div>
+</section>
+
+<section class="benefits">
+  <div class="container benefit-grid">
+    <div><strong data-i18n="benefit.shipping">توصيل السلطنة</strong><span data-i18n="benefit.shipping2">مكتب 1 ر.ع • منزل 2 ر.ع</span></div>
+    <div><strong data-i18n="benefit.free">توصيل مجاني</strong><span data-i18n="benefit.free2">عند طلب 3 منتجات</span></div>
+    <div><strong data-i18n="benefit.pay">خيارات دفع</strong><span data-i18n="benefit.pay2">عند الاستلام أو التحويل البنكي</span></div>
+  </div>
+</section>
+
+<section class="section" id="products">
+  <div class="container">
+    <div class="section-head category-main-head">
+      <div><span class="eyebrow" data-i18n="products.eyebrow">COLLECTION</span><h2 data-i18n="products.title">منتجاتنا</h2></div>
+      <a class="btn btn-primary compact-btn" href="#allProducts" data-i18n="products.viewAll">مشاهدة جميع المنتجات</a>
+    </div>
+    <div id="categorySections" class="category-sections"></div>
+
+    <div id="allProducts" class="all-products-panel is-hidden">
+      <div class="all-products-head">
+        <div>
+          <span class="eyebrow" data-i18n="products.allEyebrow">ALL PRODUCTS</span>
+          <h3 id="catalogTitle">جميع المنتجات</h3>
+        </div>
+        <div class="catalog-actions">
+          <label class="search-box" for="productSearch">
+            <span class="sr-only" data-i18n="products.searchLabel">بحث</span>
+            <span aria-hidden="true">⌕</span>
+            <input id="productSearch" type="search" autocomplete="off" data-i18n-placeholder="products.search" placeholder="ابحث عن منتج...">
+          </label>
+          <div class="filters" role="group" aria-label="Product filters">
+            <button class="filter active" type="button" data-cat="all" data-i18n="categories.all">الكل</button>
+            <button class="filter" type="button" data-cat="tshirt">تيشيرتات</button>
+            <button class="filter" type="button" data-cat="hoodie">هوديز</button>
+            <button class="filter" type="button" data-cat="pants">بناطيل</button>
+            <button class="filter" type="button" data-cat="shoes">أحذية</button>
+          </div>
+          <button class="btn btn-ghost dark-btn" type="button" id="backToCategories" data-i18n="products.back">العودة للأقسام</button>
+        </div>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+    </div>
+  </div>
+</section>
+
+<section class="trust-band">
+  <div class="container">
+    <div class="trust-heading"><span class="eyebrow">FETT.OM</span><h2 data-i18n="trust.title">تسوق بثقة</h2></div>
+    <div class="trust-grid">
+      <div class="trust-card"><div class="trust-icon">🚚</div><strong data-i18n="trust.shipping">توصيل لجميع محافظات السلطنة</strong><span data-i18n="trust.shipping2">مكتب 1 ر.ع • منزل 2 ر.ع</span></div>
+      <div class="trust-card"><div class="trust-icon">🎁</div><strong data-i18n="trust.free">توصيل مجاني</strong><span data-i18n="trust.free2">عند طلب 3 منتجات أو أكثر</span></div>
+      <div class="trust-card"><div class="trust-icon">💳</div><strong data-i18n="trust.pay">دفع مرن</strong><span data-i18n="trust.pay2">عند الاستلام أو التحويل البنكي</span></div>
+      <div class="trust-card"><div class="trust-icon">↔</div><strong data-i18n="trust.exchange">استبدال سهل</strong><span data-i18n="trust.exchange2">بحسب سياسة المتجر</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="about-band" id="about"><div class="container about-grid"><div><span class="eyebrow">FETT.OM</span><h2 data-i18n="about.title">أزياء يومية بروح رياضية</h2></div><p data-i18n="about.text">فت متجر عماني يهتم بالستايل البسيط والعملي، مع اختيارات مناسبة للخروج والنادي والاستخدام اليومي. هدفنا تجربة شراء سهلة، تصميم واضح، وتوصيل إلى جميع محافظات السلطنة.</p></div></section>
+
+<section class="section" id="policy"><div class="container narrow"><span class="eyebrow" data-i18n="policy.eyebrow">POLICY</span><h2 data-i18n="policy.title">سياسة الاستبدال</h2><div class="policy-card"><p data-i18n="policy.p1">نستقبل طلبات الاستبدال وفق حالة المنتج وتوفر المقاس المطلوب.</p><p data-i18n="policy.p2">يجب أن يكون المنتج غير مستخدم وبحالته الأصلية مع التغليف والملصقات إن وجدت.</p><p data-i18n="policy.p3">قبل إرسال أي طلب استبدال، تواصل معنا عبر واتساب للتأكد من التفاصيل.</p></div></div></section>
+
+<section class="contact-band" id="contact"><div class="container contact-grid"><div><span class="eyebrow">CONTACT</span><h2 data-i18n="contact.title">تواصل معنا</h2><p data-i18n="contact.text">للاستفسارات والطلبات المباشرة تواصل معنا على واتساب.</p></div><a class="btn btn-primary" href="https://wa.me/96877185956" target="_blank" rel="noopener">WhatsApp • 77185956</a><a class="insta" href="https://instagram.com/FETT.OM" target="_blank" rel="noopener">Instagram @FETT.OM</a></div></section>
+</main>
+<footer><div class="container footer-wrap"><span>© <span id="year"></span> FETT.OM</span><span data-i18n="footer">صُنع ببساطة، لستايل مختلف.</span></div></footer>
+
+<div class="drawer-backdrop" id="backdrop"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+  <div class="drawer-head"><h3 data-i18n="cart.title">سلة المشتريات</h3><button class="close" id="closeCart" type="button" aria-label="Close">×</button></div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-progress" id="cartProgress"></div>
+  <div class="cart-summary" id="cartSummary">
+    <div><span data-i18n="cart.subtotal">المجموع</span><strong id="subtotal">0.000 ر.ع</strong></div>
+    <div><span data-i18n="cart.delivery">التوصيل</span><strong id="delivery">يُحدد عند إتمام الطلب</strong></div>
+    <div class="total"><span data-i18n="cart.total">الإجمالي</span><strong id="total">0.000 ر.ع</strong></div>
+    <p class="free-note" data-i18n="cart.free">التوصيل مجاني عند 3 منتجات أو أكثر.</p>
+    <button class="btn btn-primary full" id="checkoutBtn" type="button" data-i18n="cart.checkout">إتمام الطلب</button>
+    <button class="btn btn-ghost full continue-btn" id="continueShopping" type="button" data-i18n="cart.continue">متابعة التسوق</button>
+  </div>
+  <div class="cart-checkout" id="cartCheckout" hidden>
+    <div class="checkout-head"><span class="eyebrow">CHECKOUT</span><h3 data-i18n="checkout.title">إتمام الطلب</h3></div>
+    <form id="checkoutForm" novalidate>
+      <label><span data-i18n="checkout.name">الاسم</span><input required name="name" autocomplete="name"></label>
+      <label><span data-i18n="checkout.phone">رقم الهاتف</span><input required name="phone" inputmode="tel" autocomplete="tel" pattern="[0-9+ ]{8,15}"></label>
+      <label><span data-i18n="checkout.governorate">المحافظة</span><select required name="governorate"><option value="" data-i18n="checkout.chooseGovernorate">اختر المحافظة</option><option>مسقط</option><option>ظفار</option><option>مسندم</option><option>البريمي</option><option>الداخلية</option><option>شمال الباطنة</option><option>جنوب الباطنة</option><option>شمال الشرقية</option><option>جنوب الشرقية</option><option>الظاهرة</option><option>الوسطى</option></select></label>
+      <label><span data-i18n="checkout.wilaya">الولاية</span><select required name="wilaya" disabled><option value="" data-i18n="checkout.chooseWilaya">اختر الولاية</option></select></label>
+      <label><span data-i18n="checkout.area">المنطقة</span><input name="area" autocomplete="address-level3" data-i18n-placeholder="checkout.areaPlaceholder" placeholder="اكتب المنطقة / الحي"></label>
+      <label><span data-i18n="checkout.notes">الملاحظات</span><textarea name="notes" rows="3" data-i18n-placeholder="checkout.notesPlaceholder" placeholder="مثال: الطلب هدية، الرجاء كتابة عبارة..."></textarea><small class="field-note" data-i18n="checkout.note">يمكن كتابة أي تفاصيل إضافية هنا.</small></label>
+      <label><span data-i18n="checkout.delivery">نوع التوصيل</span><select required name="deliveryType"><option value="" disabled selected data-i18n="checkout.chooseDelivery">اختر طريقة التوصيل</option><option value="home" data-i18n="checkout.home">التوصيل للمنزل — 2 ر.ع</option><option value="office" data-i18n="checkout.office">التوصيل للمكتب — 1 ر.ع</option></select></label>
+      <div class="checkout-delivery-row"><span data-i18n="checkout.deliveryCost">تكلفة التوصيل</span><strong id="checkoutDeliveryCost">اختر طريقة التوصيل</strong></div>
+      <label><span data-i18n="checkout.payment">طريقة الدفع</span><select required name="payment"><option value="cod" data-i18n="checkout.cod">الدفع عند الاستلام</option><option value="bank" data-i18n="checkout.bank">تحويل بنكي</option></select></label>
+      <div class="checkout-total"><span data-i18n="cart.total">الإجمالي</span><strong id="checkoutTotal">0.000 ر.ع</strong></div>
+      <button class="btn btn-primary full" type="submit" data-i18n="checkout.whatsapp">إرسال الطلب عبر واتساب</button>
+      <button class="btn btn-ghost full" type="button" id="backToCart" data-i18n="checkout.back">العودة للسلة</button>
+    </form>
+  </div>
+</aside>
+
+<div class="modal" id="productModal" aria-hidden="true"><div class="modal-card"><button class="close" data-close-modal type="button" aria-label="Close">×</button><div id="modalContent"></div></div></div>
+<script src="assets/products.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
